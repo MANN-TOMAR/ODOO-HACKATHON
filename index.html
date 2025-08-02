@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDesk - Simple Help Desk Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-tachometer-alt"></i> QuickDesk</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> New Ticket</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User Profile">
+                <span>John Doe <small>(End User)</small></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <aside class="sidebar">
+            <div class="search-box">
+                <input type="text" placeholder="Search tickets...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="filters">
+                <h3>Filters</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-inbox"></i> All Tickets</a></li>
+                    <li><a href="#"><i class="fas fa-folder-open"></i> Open</a></li>
+                    <li><a href="#"><i class="fas fa-spinner"></i> In Progress</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Resolved</a></li>
+                    <li><a href="#"><i class="fas fa-times-circle"></i> Closed</a></li>
+                </ul>
+                
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-laptop"></i> IT Support</a></li>
+                    <li><a href="#"><i class="fas fa-building"></i> HR</a></li>
+                    <li><a href="#"><i class="fas fa-money-bill-wave"></i> Finance</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Facilities</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="content-header">
+                <h2>My Tickets</h2>
+                <div class="actions">
+                    <button class="btn primary"><i class="fas fa-plus"></i> New Ticket</button>
+                    <div class="sort-options">
+                        <span>Sort by:</span>
+                        <select>
+                            <option>Recently Modified</option>
+                            <option>Most Replied</option>
+                            <option>Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-list">
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <span class="status in-progress">In Progress</span>
+                        <span class="category">IT Support</span>
+                        <span class="date">Updated: 2 hours ago</span>
+                    </div>
+                    <h3>Email not working properly</h3>
+                    <p>I'm unable to send attachments in my Outlook client. The issue started after the latest update...</p>
+                    <div class="ticket-footer">
+                        <span class="comments"><i class="fas fa-comments"></i> 3</span>
+                        <span class="upvotes"><i class="fas fa-thumbs-up"></i> 2</span>
+                        <span class="downvotes"><i class="fas fa-thumbs-down"></i> 0</span>
+                        <button class="btn small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <span class="status open">Open</span>
+                        <span class="category">Facilities</span>
+                        <span class="date">Updated: 1 day ago</span>
+                    </div>
+                    <h3>AC not cooling in my cabin</h3>
+                    <p>The air conditioner in cabin B-12 is not cooling properly despite setting the temperature to 18°C...</p>
+                    <div class="ticket-footer">
+                        <span class="comments"><i class="fas fa-comments"></i> 1</span>
+                        <span class="upvotes"><i class="fas fa-thumbs-up"></i> 5</span>
+                        <span class="downvotes"><i class="fas fa-thumbs-down"></i> 1</span>
+                        <button class="btn small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <span class="status resolved">Resolved</span>
+                        <span class="category">HR</span>
+                        <span class="date">Updated: 3 days ago</span>
+                    </div>
+                    <h3>Payroll query for June</h3>
+                    <p>There seems to be a discrepancy in my June salary. The deductions appear higher than usual...</p>
+                    <div class="ticket-footer">
+                        <span class="comments"><i class="fas fa-comments"></i> 4</span>
+                        <span class="upvotes"><i class="fas fa-thumbs-up"></i> 3</span>
+                        <span class="downvotes"><i class="fas fa-thumbs-down"></i> 0</span>
+                        <button class="btn small">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="btn"><i class="fas fa-chevron-left"></i> Previous</button>
+                <span>Page 1 of 5</span>
+                <button class="btn">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="new-ticket-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Ticket</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Briefly describe your issue">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option>Select a category</option>
+                            <option>IT Support</option>
+                            <option>HR</option>
+                            <option>Finance</option>
+                            <option>Facilities</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="5" placeholder="Provide detailed information about your issue"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachment">Attachment (optional)</label>
+                        <input type="file" id="attachment">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn secondary">Cancel</button>
+                        <button type="submit" class="btn primary">Submit Ticket</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 QuickDesk - Simple Help Desk Solution</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to toggle the modal (for demo purposes)
+        document.querySelector('.btn.primary').addEventListener('click', function() {
+            document.getElementById('new-ticket-modal').style.display = 'block';
+        });
+        
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('new-ticket-modal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
